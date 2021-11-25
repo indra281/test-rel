@@ -4,7 +4,10 @@ provider "aws" {
 
 
 terraform {
-  backend "s3" {}
+  backend "s3" {
+    key="vpc/vpc.tfstate"
+    bucket="relpro-tfstate"
+  }
 }
 
 resource "aws_vpc" "default" {
@@ -12,8 +15,6 @@ resource "aws_vpc" "default" {
   enable_dns_hostnames = true
 
   tags = {
-    Platform    = var.platform
-    Project     = var.project
     Environment = var.environment
     Name        = "terraform-aws-vpc-${var.environment}"
   }
@@ -23,8 +24,6 @@ resource "aws_internet_gateway" "default" {
   vpc_id = aws_vpc.default.id
 
   tags = {
-    Platform    = var.platform
-    Project     = var.project
     Environment = var.environment
     Name        = "internet-gateway-${var.environment}"
   }
