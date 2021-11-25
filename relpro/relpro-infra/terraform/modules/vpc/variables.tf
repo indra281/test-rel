@@ -11,11 +11,7 @@ variable "vpc_cidr" {
 }
 
 
-variable "key" {
-}
 
-variable "bucket" {
-}
 
 
 
