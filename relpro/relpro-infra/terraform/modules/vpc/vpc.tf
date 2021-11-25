@@ -4,11 +4,7 @@ provider "aws" {
 
 
 terraform {
-  backend "s3" {
-    region= var.region
-    key= var.key
-    bucket=  var.bucket
-  }
+  backend "s3" { }
 }
 
 resource "aws_vpc" "default" {
