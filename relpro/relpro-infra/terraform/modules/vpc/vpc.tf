@@ -5,8 +5,9 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    key="vpc/vpc.tfstate"
-    bucket="relpro-tfstate"
+    region= us-east1
+    key= vpc/vpc.tfstate
+    bucket= relpro-tfstate
   }
 }
 
